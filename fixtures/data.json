@@ -1,0 +1,130 @@
+[
+  {
+    "model": "data.Engineer",
+    "pk": 1,
+    "fields": {
+      "first_name": "Mehdi",
+      "last_name": "Sadour"
+    }
+  },
+  {
+    "model": "data.Engineer",
+    "pk": 2,
+    "fields": {
+      "first_name": "Joe",
+      "last_name": "Muller"
+    }
+  },
+  {
+    "model": "data.Engineer",
+    "pk": 3,
+    "fields": {
+      "first_name": "Mark",
+      "last_name": "Kohl"
+    }
+  },
+  {
+    "model": "data.Location",
+    "pk": 1,
+    "fields": {
+      "distance_km": 2,
+      "name": "Location A"
+    }
+  },
+  {
+    "model": "data.Location",
+    "pk": 2,
+    "fields": {
+      "distance_km": 4,
+      "name": "Location B"
+    }
+  },
+  {
+    "model": "data.Location",
+    "pk": 3,
+    "fields": {
+      "distance_km": 19,
+      "name": "Location C"
+    }
+  },
+  {
+    "model": "data.Location",
+    "pk": 4,
+    "fields": {
+      "distance_km": 27,
+      "name": "Location D"
+    }
+  },
+  {
+    "model": "data.Location",
+    "pk": 5,
+    "fields": {
+      "distance_km": 1,
+      "name": "Location E"
+    }
+  },
+  {
+    "model": "data.Location",
+    "pk": 6,
+    "fields": {
+      "distance_km": 12,
+      "name": "Location F"
+    }
+  },
+  {
+    "model": "data.Location",
+    "pk": 7,
+    "fields": {
+      "distance_km": 35,
+      "name": "Location G"
+    }
+  },
+  {
+    "model": "data.Location",
+    "pk": 8,
+    "fields": {
+      "distance_km": 8,
+      "name": "Location H"
+    }
+  },
+  {
+    "model": "data.Location",
+    "pk": 9,
+    "fields": {
+      "distance_km": 23,
+      "name": "Location I"
+    }
+  },
+  {
+    "model": "data.Location",
+    "pk": 10,
+    "fields": {
+      "distance_km": 26,
+      "name": "Location A"
+    }
+  },
+  {
+    "model": "data.Visits",
+    "pk": 1,
+    "fields": {
+      "engineer": 1,
+      "location": [1, 2, 5]
+    }
+  },
+  {
+    "model": "data.Visits",
+    "pk": 2,
+    "fields": {
+      "engineer": 2,
+      "location": [3, 4]
+    }
+  },
+  {
+    "model": "data.Visits",
+    "pk": 3,
+    "fields": {
+      "engineer": 3,
+      "location": [6, 7, 8, 9, 10]
+    }
+  }
+]
