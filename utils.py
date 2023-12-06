@@ -1,3 +1,8 @@
+import random
+
+from data.models import LocationClient, Engineer
+
+
 def convert_visit_as_text(visits: dict) -> str:
     visits_as_list = [
         f"{engineer} visit {locations}"
@@ -7,13 +12,32 @@ def convert_visit_as_text(visits: dict) -> str:
     return visits_as_text
 
 
-def calculate_total_km(distances_km: list) -> int:
+def calculate_total_km_travelled(distances_km: list) -> int:
     total = 0
     for index, distance in enumerate(distances_km):
         if index == 0:
             total += distance
         elif index > 0:
-            difference = abs(distance - distances_km[index -1])
+            difference = abs(distance - distances_km[index-1])
             total += difference
 
     return total
+
+
+def build_random_installation_visits() -> dict:
+    engineers = Engineer.objects.all()
+
+    locations_client_available = [lc for lc in LocationClient.objects.all()]
+    random.shuffle(locations_client_available)
+
+    for location_client_available in locations_client_available:
+        engineer = engineers.order_by('?').first()
+        location_client_available.engineer_visit = engineer
+
+    visits = {}
+    for location in locations_client_available:
+        if location.engineer_visit.full_name() not in visits.keys():
+            visits[location.engineer_visit.full_name()] = []
+        visits[location.engineer_visit.full_name()].append(location.name)
+
+    return visits

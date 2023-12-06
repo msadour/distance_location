@@ -4,7 +4,8 @@
     "pk": 1,
     "fields": {
       "first_name": "Mehdi",
-      "last_name": "Sadour"
+      "last_name": "Sadour",
+      "unique_name": "msadour"
     }
   },
   {
@@ -12,7 +13,8 @@
     "pk": 2,
     "fields": {
       "first_name": "Joe",
-      "last_name": "Muller"
+      "last_name": "Muller",
+      "unique_name": "jmuller"
     }
   },
   {

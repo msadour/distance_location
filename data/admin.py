@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Engineer, LocationEngineer, LocationClient
+
+admin.site.register(Engineer)
+admin.site.register(LocationEngineer)
+admin.site.register(Patient)
