@@ -18,6 +18,13 @@ class Location(models.Model):
 
     objects = models.Manager()
 
+    def __str__(self):
+        return self.name
+
+    def get_distance_another_location(self, location):
+        difference = self.distance_km - location.distance_km
+        return abs(difference)
+
 
 class Visits(models.Model):
     engineer = models.ForeignKey(Engineer, on_delete=models.CASCADE)
