@@ -5,10 +5,10 @@ from data.models import LocationClient, Engineer
 
 def convert_visit_as_text(visits: dict) -> str:
     visits_as_list = [
-        f"{engineer} visit {locations}"
+        f"{engineer}> visit {locations}"
         for engineer, locations in visits.items()
     ]
-    visits_as_text = ". ".join(visits_as_list)
+    visits_as_text = ". \n".join(visits_as_list)
     return visits_as_text
 
 
@@ -36,8 +36,8 @@ def build_random_installation_visits() -> dict:
 
     visits = {}
     for location in locations_client_available:
-        if location.engineer_visit.full_name() not in visits.keys():
-            visits[location.engineer_visit.full_name()] = []
-        visits[location.engineer_visit.full_name()].append(location.name)
+        if location.engineer_visit.unique_name not in visits.keys():
+            visits[location.engineer_visit.unique_name] = []
+        visits[location.engineer_visit.unique_name].append(location.name)
 
     return visits
