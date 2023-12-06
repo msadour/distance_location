@@ -8,9 +8,6 @@ class Engineer(models.Model):
 
     objects = models.Manager()
 
-    def full_name(self) -> str:
-        return f"{self.first_name} {self.last_name}"
-
 
 class Location(models.Model):
     distance_km = models.IntegerField()
@@ -24,10 +21,6 @@ class Location(models.Model):
     def get_distance_another_location(self, location) -> int:
         difference = self.distance_km - location.distance_km
         return abs(difference)
-
-    def display_distance_with_name(self, location) -> str:
-        distance_client_location = self.get_distance_another_location(location)
-        return f"{distance_client_location}km away"
 
 
 class LocationEngineer(Location):

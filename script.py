@@ -29,13 +29,24 @@ def distance_matrix_to_df(matrix: dict) -> pd.DataFrame:
     return df
 
 
-def display_random_installation_visits(visits_client_generated: dict):
+def reduce_km_travelled_visits(distances: pd.DataFrame, visits: dict) -> dict:
+    visits_updated = {}
+    for current_engineer, current_visits in visits.items():
+        df = pd.DataFrame(distances, columns=[current_engineer])
+        df = df.filter(items=current_visits, axis=0).sort_values([current_engineer], ascending=[True])
+        visits_updated.update({current_engineer: df.index.values.tolist()})
+
+    return visits_updated
+
+
+def display_installation_visits(visits_client_generated: dict):
     visits = convert_visit_as_text(visits_client_generated)
     print(visits)
 
 
 def calculate_distance_travelled(engineer_unique_name: str, distances: pd.DataFrame, visits: dict) -> int:
     visits_of_engineer = visits.get(engineer_unique_name)
+
     df = pd.DataFrame(distances, columns=[engineer_unique_name])
     df = df.filter(items=visits_of_engineer, axis=0)
     distances_in_km = df[engineer_unique_name].values.tolist()
@@ -47,10 +58,13 @@ def calculate_distance_travelled(engineer_unique_name: str, distances: pd.DataFr
     distance_between_home_and_last_visit = abs(location_engineer.distance_km - last_visit_distance_km)
     total_km_travelled = calculate_total_km_travelled(distances_in_km)
     total_km_travelled += distance_between_home_and_last_visit
+
     return total_km_travelled
 
 
 if __name__ == "__main__":
+    engineers = Engineer.objects.all()
+
     print("Exercise A: generate a distance matrix")
     distance_matrix = distance_matrix()
     distance_matrix_df = distance_matrix_to_df(matrix=distance_matrix)
@@ -59,11 +73,10 @@ if __name__ == "__main__":
 
     print("Exercise B: generates a random sequence of installation visits for the engineers")
     visits_client_available = build_random_installation_visits()
-    display_random_installation_visits(visits_client_generated=visits_client_available)
+    display_installation_visits(visits_client_generated=visits_client_available)
     print("\n")
 
     print("Exercise C: calculate the distance travelled by engineers")
-    engineers = Engineer.objects.all()
     for engineer in engineers:
         total_km = calculate_distance_travelled(
             engineer_unique_name=engineer.unique_name,
@@ -80,5 +93,22 @@ if __name__ == "__main__":
     location_to_jmuller = visit_msadour.pop(0)
     visit_jmuller.insert(0, location_to_jmuller)
     visit_msadour.insert(0, location_to_msadour)
-    display_random_installation_visits(visits_client_generated=visits_client_available)
+    display_installation_visits(visits_client_generated=visits_client_available)
+    print("\n")
+
+    print("Exercise E: filter the new sequences that reduce the total distance travelled by the engineers")
+    visits_client_available_travel_reduced = reduce_km_travelled_visits(distances=distance_matrix_df, visits=visits_client_available)
+    for engineer in engineers:
+        total_km_before = calculate_distance_travelled(
+            engineer_unique_name=engineer.unique_name,
+            distances=distance_matrix_df,
+            visits=visits_client_available
+        )
+        print(f"{engineer.unique_name} travelled {total_km_before}km (before)")
+        total_km_after = calculate_distance_travelled(
+            engineer_unique_name=engineer.unique_name,
+            distances=distance_matrix_df,
+            visits=visits_client_available_travel_reduced
+        )
+        print(f"{engineer.unique_name} travelled {total_km_after}km (after reduce)")
     print("\n")
