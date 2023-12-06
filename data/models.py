@@ -25,10 +25,14 @@ class Location(models.Model):
         difference = self.distance_km - location.distance_km
         return abs(difference)
 
+    def display_distance_with_name(self, location):
+        distance_client_location = self.get_distance_another_location(location)
+        return f"{distance_client_location}km away"
 
-class Visits(models.Model):
+
+class LocationEngineer(Location):
     engineer = models.ForeignKey(Engineer, on_delete=models.CASCADE)
-    location = models.ManyToManyField(Location)
-    date = models.DateTimeField(default=timezone.now)
 
-    objects = models.Manager()
+
+class LocationClient(Location):
+    pass

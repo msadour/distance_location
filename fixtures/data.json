@@ -16,115 +16,85 @@
     }
   },
   {
-    "model": "data.Engineer",
-    "pk": 3,
-    "fields": {
-      "first_name": "Mark",
-      "last_name": "Kohl"
-    }
-  },
-  {
-    "model": "data.Location",
+    "model": "data.LocationClient",
     "pk": 1,
     "fields": {
       "distance_km": 2,
-      "name": "Location A"
+      "name": "Location client A"
     }
   },
   {
-    "model": "data.Location",
+    "model": "data.LocationClient",
     "pk": 2,
     "fields": {
       "distance_km": 4,
-      "name": "Location B"
+      "name": "Location client B"
     }
   },
   {
-    "model": "data.Location",
+    "model": "data.LocationClient",
     "pk": 3,
     "fields": {
       "distance_km": 19,
-      "name": "Location C"
+      "name": "Location client C"
     }
   },
   {
-    "model": "data.Location",
+    "model": "data.LocationClient",
     "pk": 4,
     "fields": {
       "distance_km": 27,
-      "name": "Location D"
+      "name": "Location client D"
     }
   },
   {
-    "model": "data.Location",
+    "model": "data.LocationClient",
     "pk": 5,
     "fields": {
       "distance_km": 1,
-      "name": "Location E"
+      "name": "Location client E"
     }
   },
   {
-    "model": "data.Location",
+    "model": "data.LocationClient",
     "pk": 6,
     "fields": {
       "distance_km": 12,
-      "name": "Location F"
+      "name": "Location client F"
     }
   },
   {
-    "model": "data.Location",
+    "model": "data.LocationClient",
     "pk": 7,
     "fields": {
       "distance_km": 35,
-      "name": "Location G"
+      "name": "Location client G"
     }
   },
   {
-    "model": "data.Location",
+    "model": "data.LocationClient",
     "pk": 8,
     "fields": {
       "distance_km": 8,
-      "name": "Location H"
+      "name": "Location client H"
     }
   },
   {
-    "model": "data.Location",
+    "model": "data.LocationEngineer",
     "pk": 9,
     "fields": {
-      "distance_km": 23,
-      "name": "Location I"
+      "distance_km": 0,
+      "name": "Location engineer Mehdi",
+      "engineer": 1
     }
   },
   {
-    "model": "data.Location",
+    "model": "data.LocationEngineer",
     "pk": 10,
     "fields": {
-      "distance_km": 26,
-      "name": "Location J"
-    }
-  },
-  {
-    "model": "data.Visits",
-    "pk": 1,
-    "fields": {
-      "engineer": 1,
-      "location": [1, 2, 5]
-    }
-  },
-  {
-    "model": "data.Visits",
-    "pk": 2,
-    "fields": {
-      "engineer": 2,
-      "location": [3, 4]
-    }
-  },
-  {
-    "model": "data.Visits",
-    "pk": 3,
-    "fields": {
-      "engineer": 3,
-      "location": [6, 7, 8, 9, 10]
+      "distance_km": 10,
+      "name": "Location engineer Joe",
+      "engineer": 2
     }
   }
 ]
