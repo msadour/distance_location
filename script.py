@@ -12,11 +12,11 @@ def distance_matrix() -> pd.DataFrame:
     locations_client = LocationClient.objects.all()
     for location_engineer in locations_engineer:
         matrix[location_engineer.name] = [
-            f"{location_client.name} is {location_client.display_distance_with_name(location_engineer)}"
+            location_client.get_distance_another_location(location_engineer)
             for location_client in locations_client
         ]
 
-    df = pd.DataFrame(data=matrix)
+    df = pd.DataFrame(data=matrix, index=[location_client.name for location_client in locations_client])
     return df
 
 
