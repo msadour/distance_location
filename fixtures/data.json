@@ -18,7 +18,7 @@
     }
   },
   {
-    "model": "data.LocationClient",
+    "model": "data.Location",
     "pk": 1,
     "fields": {
       "distance_km": 2,
@@ -27,6 +27,13 @@
   },
   {
     "model": "data.LocationClient",
+    "pk": 1,
+    "fields": {
+      "location_ptr_id": 1
+    }
+  },
+  {
+    "model": "data.Location",
     "pk": 2,
     "fields": {
       "distance_km": 4,
@@ -35,6 +42,13 @@
   },
   {
     "model": "data.LocationClient",
+    "pk": 2,
+    "fields": {
+      "location_ptr_id": 2
+    }
+  },
+  {
+    "model": "data.Location",
     "pk": 3,
     "fields": {
       "distance_km": 19,
@@ -43,6 +57,13 @@
   },
   {
     "model": "data.LocationClient",
+    "pk": 3,
+    "fields": {
+      "location_ptr_id": 3
+    }
+  },
+  {
+    "model": "data.Location",
     "pk": 4,
     "fields": {
       "distance_km": 27,
@@ -51,6 +72,13 @@
   },
   {
     "model": "data.LocationClient",
+    "pk": 4,
+    "fields": {
+      "location_ptr_id": 4
+    }
+  },
+  {
+    "model": "data.Location",
     "pk": 5,
     "fields": {
       "distance_km": 1,
@@ -59,6 +87,13 @@
   },
   {
     "model": "data.LocationClient",
+    "pk": 5,
+    "fields": {
+      "location_ptr_id": 5
+    }
+  },
+  {
+    "model": "data.Location",
     "pk": 6,
     "fields": {
       "distance_km": 12,
@@ -67,6 +102,13 @@
   },
   {
     "model": "data.LocationClient",
+    "pk": 6,
+    "fields": {
+      "location_ptr_id": 6
+    }
+  },
+  {
+    "model": "data.Location",
     "pk": 7,
     "fields": {
       "distance_km": 35,
@@ -75,6 +117,13 @@
   },
   {
     "model": "data.LocationClient",
+    "pk": 7,
+    "fields": {
+      "location_ptr_id": 7
+    }
+  },
+  {
+    "model": "data.Location",
     "pk": 8,
     "fields": {
       "distance_km": 8,
@@ -82,20 +131,41 @@
     }
   },
   {
-    "model": "data.LocationEngineer",
+    "model": "data.LocationClient",
+    "pk": 8,
+    "fields": {
+      "location_ptr_id": 8
+    }
+  },
+  {
+    "model": "data.Location",
     "pk": 9,
     "fields": {
       "distance_km": 0,
-      "name": "Location engineer Mehdi",
+      "name": "Location engineer Mehdi"
+    }
+  },
+  {
+    "model": "data.LocationEngineer",
+    "pk": 9,
+    "fields": {
+      "location_ptr_id": 9,
       "engineer": 1
+    }
+  },
+  {
+    "model": "data.Location",
+    "pk": 10,
+    "fields": {
+      "distance_km": 10,
+      "name": "Location engineer Joe"
     }
   },
   {
     "model": "data.LocationEngineer",
     "pk": 10,
     "fields": {
-      "distance_km": 10,
-      "name": "Location engineer Joe",
+      "location_ptr_id": 10,
       "engineer": 2
     }
   }
