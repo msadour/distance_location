@@ -14,8 +14,11 @@ def convert_visit_as_text(visits: dict) -> str:
     return visits_as_text
 
 
-def calculate_total_km_travelled(distances_km: list) -> int:
-    """Calculate the total km travelled. For each list element except the first, calculate and add to the total variable the difference between the current distance and the one before."""
+def calculate_total_km_travelled(distances_km: list) -> float:
+    """
+    Calculate the total km travelled. For each list element except the first, calculate and add to the total variable
+    the difference between the current distance and the one before.
+    """
     total = 0
     for index, distance in enumerate(distances_km):
         if index == 0:
