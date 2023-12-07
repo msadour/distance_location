@@ -31,11 +31,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # Application definition
 
-INSTALLED_APPS = [
-    'data'
-]
+INSTALLED_APPS = ["data"]
 
-WSGI_APPLICATION = 'distance_location.wsgi.application'
+WSGI_APPLICATION = "distance_location.wsgi.application"
 
 # # Geolocation
 # GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, "gdal-3.8.1")
@@ -59,9 +57,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -70,4 +68,4 @@ USE_TZ = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

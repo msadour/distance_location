@@ -18,6 +18,7 @@ from utils import (
 
 
 def distance_matrix() -> dict:
+    """Create a distance matrix which show the difference distance between engineer location and client location."""
     matrix = {}
     for location_engineer in locations_engineer:
         matrix[location_engineer.engineer.unique_name] = [
@@ -29,6 +30,7 @@ def distance_matrix() -> dict:
 
 
 def distance_matrix_to_df(matrix: dict) -> pd.DataFrame:
+    """Convert the distance matrix (which is a dictionary) into a DataFrame."""
     df = pd.DataFrame(
         data=matrix,
         index=[location_client.name for location_client in locations_client],
@@ -37,6 +39,7 @@ def distance_matrix_to_df(matrix: dict) -> pd.DataFrame:
 
 
 def reduce_km_travelled_visits(distances: pd.DataFrame, visits: dict) -> dict:
+    """Sort distance of a DataFrame in order to avoid go and back between locations, which reduce the distance travelled."""
     visits_updated = {}
     for current_engineer, current_visits in visits.items():
         df = pd.DataFrame(distances, columns=[current_engineer])
@@ -49,6 +52,7 @@ def reduce_km_travelled_visits(distances: pd.DataFrame, visits: dict) -> dict:
 
 
 def display_installation_visits(visits: dict):
+    """Convert visits dictionary as readable text."""
     visits = convert_visit_as_text(visits)
     print(visits)
 
@@ -56,6 +60,7 @@ def display_installation_visits(visits: dict):
 def calculate_distance_travelled(
     engineer_unique_name: str, distances: pd.DataFrame, visits: dict
 ) -> int:
+    """Calculate the total distance travelled of an engineer of his/her client location visits."""
     visits_of_engineer = visits.get(engineer_unique_name)
 
     df = pd.DataFrame(distances, columns=[engineer_unique_name])
